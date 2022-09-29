@@ -7,7 +7,7 @@ export default function Navbar(props) {
     <div className="">
         <div className="row">
             <div className="col-md-12">
-                <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
+                <nav id="nav" className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} bg-darken-xl`}>
                     <div className="container-fluid">
                     <a className="navbar-brand" href="#">{props.title}</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,13 +18,15 @@ export default function Navbar(props) {
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">{props.homeText}</a>
                         </li>
-                        {/* <li className="nav-item">
-                            <a className="nav-link" href="/about">{props.aboutText}</a>
-                        </li> */}
                         </ul>
-                        <div className="form-check form-switch">
-                            <input className="form-check-input" onClick={props.toggleMode}  type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                            <label className={`form-check-label text-${props.mode==='dark'?'light':'dark'}`} htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+                        <div className="d-flex">
+                            <div className="bg-primary rounded mx-2" onClick={() => props.toggleMode('primary')} style={{height: '30px', width: '30px', border: '2px solid grey'}}></div>
+                            <div className="bg-secondary rounded mx-2" onClick={() => props.toggleMode('secondary')} style={{height: '30px', width: '30px', border: '2px solid grey'}}></div>
+                            <div className="bg-success rounded mx-2" onClick={() => props.toggleMode('success')} style={{height: '30px', width: '30px', border: '2px solid grey'}}></div>
+                            <div className="bg-warning rounded mx-2" onClick={() => props.toggleMode('warning')} style={{height: '30px', width: '30px', border: '2px solid grey'}}></div>
+                            <div className="bg-danger rounded mx-2" onClick={() => props.toggleMode('danger')} style={{height: '30px', width: '30px', border: '2px solid grey'}}></div>
+                            <div className="bg-dark rounded mx-2" onClick={() => props.toggleMode('dark')} style={{height: '30px', width: '30px', border: '2px solid grey'}}></div>
+                            <div className="bg-light rounded mx-2" onClick={() => props.toggleMode('light')} style={{height: '30px', width: '30px', border: '2px solid grey'}}></div>
                         </div>
                     </div>
                     </div>

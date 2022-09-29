@@ -13,19 +13,17 @@ import TextForm from './components/TextForm';
 
 function App() {
 
-  const [mode, setMode] = useState('light');
+  const [mode, setMode] = useState('primary');
   const [alert, setAlert] = useState(null);
+ 
+  const removeColors = () => {
+    document.body.className = "";
+    setMode(null);
+  }
 
-  const toggleMode = () => {
-    if(mode === 'light'){
-      setMode('dark');
-      document.body.style.backgroundColor = '#000080';
-      showAlert('dark Mode enabled', 'success');
-    } else {
-      setMode('light');
-      document.body.style.backgroundColor = 'white';
-      showAlert('light Mode enabled', 'success');
-    }
+  const toggleMode = (themeClass) => {
+    removeColors();
+    setMode(themeClass);
   }
 
   const showAlert = (message, type) => {
@@ -42,12 +40,12 @@ function App() {
     <>
       {/* <Router> */}
         <div>
-          <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} homeText="Home" aboutText="About Us"/>
+          <Navbar title="TextUtils" mode={mode} setMode={setMode} toggleMode={toggleMode} homeText="Home" aboutText="About Us"/>
           <Alert showAlert={showAlert} alert={alert}/>
           {/* <Routes> */}
             {/* <Route path="/about" element={<About />} />
             <Route path="/" element={ */}
-            <TextForm mode={mode}  showAlert={showAlert} heading="Enter Text"/>
+            <TextForm mode={mode} toggleMode={toggleMode} showAlert={showAlert} heading="Enter Text"/>
             {/* }/>
           </Routes> */}
         </div>
