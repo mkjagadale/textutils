@@ -10,7 +10,8 @@ export default function TextForm(props) {
 
   let textStyle = {
     backgroundColor: props.containerColor,
-    filter: 'inherit'
+    filter: 'invert(100%)',
+    margin: '1%'
   }
   
   let containerStyle = {
@@ -88,12 +89,14 @@ export default function TextForm(props) {
             <div className={`mb-3 text-${props.mode==='dark'? 'light' : 'dark'}`}>
                 <h1 className='mt-4'>{props.heading}</h1>
                 <textarea className='form-control' id="myBox1" rows="8" value={text} onChange={handleOnChange} onBlur={handleOnBlur} onClick={handlOnclick}></textarea>
-            </div>            
-            <button className={`btn btn-pill btn-${props.mode}`} style={textStyle} onClick={handleUpClick}>Convert To Uppercase</button>
-            <button className={`btn btn-pill btn-${props.mode} ms-1`} style={textStyle} onClick={handledownClick}>Convert To LowerCase</button>
-            <button className={`btn btn-pill btn-${props.mode} ms-1`} style={textStyle} onClick={handleClearText}>Clear Text</button>
-            <button className={`btn btn-pill btn-${props.mode} ms-1`} style={textStyle} onClick={handleCopyText}>Copy Text</button>
-            <button className={`btn btn-pill btn-${props.mode} ms-1`} style={textStyle} onClick={handleExtraSpaces}>Remove Extra Spaces</button>            
+            </div>
+            <div className="col-lg-12 col-md-6 col-sm-4 col-xs-12">
+              <button className={`btn btn-pill btn-${props.mode}`} style={textStyle} onClick={handleUpClick}>Convert To Uppercase</button>
+              <button className={`btn btn-pill btn-${props.mode}`} style={textStyle} onClick={handledownClick}>Convert To LowerCase</button>
+              <button className={`btn btn-pill btn-${props.mode}`} style={textStyle} onClick={handleClearText}>Clear Text</button>
+              <button className={`btn btn-pill btn-${props.mode}`} style={textStyle} onClick={handleCopyText}>Copy Text</button>
+              <button className={`btn btn-pill btn-${props.mode}`} style={textStyle} onClick={handleExtraSpaces}>Remove Extra Spaces</button>            
+            </div>    
           <div className={`mb-3 my-5 text-${props.mode==='dark'? 'light' : 'dark'}`}>
             <h1>Text area summary</h1>
             <p> {countWords(text)} words and {text.length} characters</p>
